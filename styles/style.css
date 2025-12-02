@@ -1,0 +1,15 @@
+* {
+    color: black;
+    background-color: #DAC5A1;
+}
+
+#navbar {
+    
+}
+
+.test-team{
+    width: 200px;
+    border: 2px solid yellow;
+    background-color: aqua;
+    gap: 20px
+}
