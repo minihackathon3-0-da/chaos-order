@@ -2,7 +2,92 @@
     box-sizing: border-box;
     border: none;
     margin: 0;
+    padding: 0;
     scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(11, 38, 22);
+    color: white;
+    text-shadow: rgb(212, 175, 55);
+}
+
+header,
+footer {
+    width: 100%;
+    background-color: rgb(120, 150, 130);
+}
+
+header {
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* header button {
+    background-color: transparent;
+    color: white;
+    background-color: rgb(212, 175, 55);
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+} */
+
+.burger_menu {
+    font-size: 30px;
+    cursor: pointer;
+    border: none;
+    color: black;
+    padding: 0 10px;
+}
+
+.burger_menu button {
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 4px 0;
+}
+
+.burger_menu nav {
+    left: 30px;
+    /* width: 100px; */
+    /* margin-top: 170px; */
+    top: 109px;
+    background-color: rgb(212, 175, 55);
+    position: relative;
+}
+
+.burger_menu a {
+    /* color: black; */
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}
+
+.burger_menu a:hover {
+    /* background-color: rgb(11, 38, 22); */
+    color: white;
+}
+
+main {
+    min-height: calc(100vh - 140px);
+    padding: 20px;
+    padding-bottom: 2em;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 2em;
 }
 
 a {
