@@ -1,0 +1,50 @@
+.sidenav button {
+  display: block;
+  width: 100%;
+  margin-bottom: 16px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: none;
+  background: #2563eb;
+  color: #a6b2c9;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sidenav button:hover {
+  background: #1d4ed8;
+}
+
+.board {
+  position: relative; /* wichtig für absolute Cards */
+  width: 800px;
+  height: 400px;
+  margin: 40px auto;
+  background: #527bce;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.card {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
+  max-width: 260px;
+  cursor: default;
+  user-select: none;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  color: #4b5563;
+}
