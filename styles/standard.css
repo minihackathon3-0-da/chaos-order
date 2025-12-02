@@ -30,6 +30,16 @@ a:hover {
     flex-direction: column;
 }
 
+.d_flex_jcc {
+    display: flex;
+    justify-content: center;
+}
+
+.d_flex-aic {
+    display: flex;
+    align-items: center;
+}
+
 .d_flex_sb_c {
     display: flex;
     justify-content: space-between;
