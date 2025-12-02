@@ -28,7 +28,7 @@ header {
     padding: 0 20px;
 }
 
-/* header button {
+header button {
     background-color: transparent;
     color: white;
     background-color: rgb(212, 175, 55);
@@ -38,7 +38,20 @@ header {
     border-radius: 8px;
     padding: 8px 16px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-} */
+}
+
+.header a {
+    color: black
+    padding: 14px 16px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+}
+
+.header a:hover {
+    color: white;
+}
 
 .burger_menu {
     font-size: 30px;
@@ -48,24 +61,27 @@ header {
     padding: 0 10px;
 }
 
-.burger_menu button {
-    width: 25px;
-    height: 3px;
-    background-color: black;
-    margin: 4px 0;
+main {
+    top: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: end;
+    align-items: center;
 }
 
-.burger_menu nav {
+.right_side_nav {
     left: 30px;
-    /* width: 100px; */
-    /* margin-top: 170px; */
-    top: 109px;
+    height: 100vh;
+    width: 150px;
     background-color: rgb(212, 175, 55);
-    position: relative;
 }
 
-.burger_menu a {
-    /* color: black; */
+.right_side_nav:not [active] {
+    width : - 150px
+}
+
+.right_side_nav a {
+    color: black;
     padding: 14px 16px;
     text-align: center;
     text-decoration: none;
@@ -73,15 +89,8 @@ header {
     display: block;
 }
 
-.burger_menu a:hover {
-    /* background-color: rgb(11, 38, 22); */
+.right_side_nav a:hover {
     color: white;
-}
-
-main {
-    min-height: calc(100vh - 140px);
-    padding: 20px;
-    padding-bottom: 2em;
 }
 
 footer {
