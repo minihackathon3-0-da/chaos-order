@@ -1,18 +1,25 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-// TODO: Add SDKs for Firebase products that you want to use
+class Firebase {
+    constructor(){
 
-const env = import.meta.env;
+        this.apiKey = import.meta.API_KEY;
+        this.authDomain = import.meta.AUTH_DOMAIN;
+        this.projectId = import.meta.PROJECT_ID;
+        this.storageBucket = import.meta.STORAGE_BUCKET;
+        this.messagingSenderId = import.meta.MASSAGING_SENDER_ID;
+        this.appId = import.meta.APP_ID;
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: env.API_KEY,
-    authDomain: env.AUTH_DOMAIN,
-    projectId: env.PROJECT_ID,
-    storageBucket: env.STORAGE_BUCKET,
-    messagingSenderId: env.MASSAGING_SENDER_ID,
-    appId: env.APP_ID,
-};
+        this.firebaseConfig = {
+            apiKey: this.apiKey,           
+            authDomain: this.authDomain,   
+            projectId: this.projectId,     
+            storageBucket: this.storageBucket, 
+            messagingSenderId: this.messagingSenderId, 
+            appId: this.appId,             
+        };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
+        this.app = initializeApp(this.firebaseConfig);
+    }
+}
+
+export default Firebase;
