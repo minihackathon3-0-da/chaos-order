@@ -4,6 +4,7 @@ const cardTextInput = document.getElementById("card-text-input"); // 👈 neu
 
 let cardTemplate = "";
 let cardCounter = 1;
+let test = "Mina";
 
 // Template laden
 async function loadCardTemplate() {
@@ -14,6 +15,7 @@ loadCardTemplate();
 
 // Card aus Template erzeugen
 function createCardFromTemplate() {
+  hello(test);
   if (!cardTemplate) return;
 
   const wrapper = document.createElement("div");
@@ -35,7 +37,7 @@ function createCardFromTemplate() {
   }
 
   board.appendChild(card);
-
+  cardTextInput.value = "";
   // random Position
   const boardRect = board.getBoundingClientRect();
   const cardRect = card.getBoundingClientRect();
@@ -51,25 +53,6 @@ function createCardFromTemplate() {
 }
 
 addButton.addEventListener("click", createCardFromTemplate);
-
-// --- Drag & Drop Logik ------------------------------------------
-
-let currentDraggedCard = null;
-let dragOffsetX = 0;
-let dragOffsetY = 0;
-
-function makeCardDraggable(card) {
-  // mousedown auf der Card starten den Drag
-  card.addEventListener("mousedown", (event) => {
-    currentDraggedCard = card;
-
-    const rect = card.getBoundingClientRect();
-    dragOffsetX = event.clientX - rect.left;
-    dragOffsetY = event.clientY - rect.top;
-
-    document.body.style.userSelect = "none"; // Text-Auswahl verhindern
-  });
-}
 
 // globales mousemove: wenn gerade eine Card gezogen wird, bewegen
 document.addEventListener("mousemove", (event) => {
@@ -98,19 +81,19 @@ document.addEventListener("mouseup", () => {
   document.body.style.userSelect = "";
 });
 
-/* 
-function createRandomCard() {
-  console.log(cardCounter);
-  // 1. Card-Element erstellen
-  const card = document.createElement("div");
-  card.classList.add("card");
+let currentDraggedCard = null;
+let dragOffsetX = 0;
+let dragOffsetY = 0;
 
-  // 2. Inhalt der Card setzen
-  card.innerHTML = `
-      <h3>Card #${cardCounter}</h3>
-      <p>Ich wurde per JS erstellt 🎉</p>
-    `;
+function makeCardDraggable(card) {
+  // mousedown auf der Card starten den Drag
+  card.addEventListener("mousedown", (event) => {
+    currentDraggedCard = card;
 
-  cardCounter++;
+    const rect = card.getBoundingClientRect();
+    dragOffsetX = event.clientX - rect.left;
+    dragOffsetY = event.clientY - rect.top;
+
+    document.body.style.userSelect = "none"; // Text-Auswahl verhindern
+  });
 }
- */

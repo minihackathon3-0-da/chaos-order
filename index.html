@@ -1,7 +1,8 @@
+<!-- # Einstiegspunkt, bindet main.js + styles.css ein -->
+
 <!DOCTYPE html>
 <html lang="de">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>chaos-order</title>
@@ -14,50 +15,59 @@
 
     <script type="module" src="./scripts/getService.js"></script>
     <script type="module" src="./scripts/Firebase.js"></script>
-</head>
+  </head>
 
-<body>
+  <body>
     <header>
-        <a href="#home" class="active">Logo</a>
-        <button id="burger_menu">≡</button>
-        <nav class="right_side_nav">
-            <a href="#home">Homepage</a>
-            <a href="#news">News</a>
-            <a href="#contact">Contact</a>
-            <a href="#about">About</a>
-        </nav>
+      <a href="#home" class="active">Logo</a>
+      <button id="burger_menu">≡</button>
+      <nav class="right_side_nav">
+        <a href="#home">Homepage</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </nav>
     </header>
     <main>
-        <nav class="sidenav">
-            <h2>Navigation</h2>
-            <label for="card-text-input" style="font-size: 12px; display: block; margin-bottom: 4px">
-                Text für neue Card:
-            </label>
-            <input id="card-text-input" type="text" placeholder="Text für die Karte" style="
+      <nav class="sidenav">
+        <h2>Navigation</h2>
+        <label
+          for="card-text-input"
+          style="font-size: 12px; display: block; margin-bottom: 4px"
+        >
+          Text für neue Card:
+        </label>
+        <input
+          id="card-text-input"
+          type="text"
+          placeholder="Text für die Karte"
+          style="
             width: 100%;
             margin-bottom: 8px;
             padding: 6px;
             border-radius: 4px;
             border: 1px solid #4b5563;
-          " />
+          "
+        />
 
-            <button id="add-card-btn">+ Neue Card</button>
+        <button id="add-card-btn">+ Neue Card</button>
 
-            <ul>
-                <li><a href="#">Board</a></li>
-                <li><a href="#">Einstellungen</a></li>
-                <li><a href="#">Über</a></li>
-            </ul>
-        </nav>
+        <ul>
+          <li><a href="#">Board</a></li>
+          <li><a href="#">Einstellungen</a></li>
+          <li><a href="#">Über</a></li>
+        </ul>
+      </nav>
 
-        <!-- einfügen des Board-html -->
-        <div class="board"></div>
+      <!-- einfügen des Board-html -->
+      <div class="board"></div>
     </main>
     <footer>
-        <Footer></Footer>
+      <footer></footer>
     </footer>
-</body>
-<script src="./scripts/script.js"></script>
-<script src="./scripts/boards.js"></script>
+  </body>
+  <script src="./scripts/script.js"></script>
+  <script src="./features/board/userinteraction.js"></script>
 
+  <script src="./features/board/boards.js"></script>
 </html>
