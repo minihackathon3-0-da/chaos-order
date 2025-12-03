@@ -1,7 +1,7 @@
 import { getFirestore, addDoc  } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js"; 
 import Firebase from "./firebase.js";
 
-// post = Sachen(Objekte) neu anlegen oder komplett überschrieben
+// post = Sachen(Objekte) neu anlegen
 
 class PostService extends Firebase {
     constructor() {
