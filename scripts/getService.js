@@ -24,7 +24,7 @@ class GetService extends Firebase {
     }
 
     // lade einzelne
-    //            ID
+    //            uid
     async getCard(cardId) {
         try {
             const snapshot = await getDoc(collection(this.db, "cards", cardId));

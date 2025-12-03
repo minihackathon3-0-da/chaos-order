@@ -12,28 +12,28 @@ class PutService extends Firebase {
 
     // ---- card -----
     // optional: nur Felder updaten (merge)
-    //               ID      Obj
-    async updateCard(cardId, partialData) {
+    //               uid      Obj
+    async updateCard(cardId, data) {
         try {
-            await setDoc(doc(this.db, "cards", cardId), partialData, { merge: true });
+            await setDoc(doc(this.db, "cards", cardId), data, { merge: true });
         } catch (error) {
             console.error("❌ Fehler beim Aktualisieren der Karte:", error);
         }
     }
 
     // ---- details -----
-    async updateCardDetail(cardId, partialData) {
+    async updateCardDetail(cardId, data) {
         try {
-            await setDoc(doc(this.db, "cardDetails", cardId), partialData, { merge: true });
+            await setDoc(doc(this.db, "cardDetails", cardId), data, { merge: true });
         } catch (error) {
             console.error("❌ Fehler beim Aktualisieren der Kartendetails:", error);
         }
     }
 
     // ---- category -----
-    async updateCategory(catId, partialData) {
+    async updateCategory(catId, data) {
         try {
-            await setDoc(doc(this.db, "categorys", catId), partialData, { merge: true });
+            await setDoc(doc(this.db, "categorys", catId), data, { merge: true });
         } catch (error) {
             console.error("❌ Fehler beim Aktualisieren der Kategorie:", error);
         }

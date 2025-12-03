@@ -12,7 +12,7 @@ class PostService extends Firebase {
     // zum löschen braucht man die uid!
 
     // ---- card -----
-    //               ID
+    //               uid
     async deleteCard(cardId) {
         try {
             await deleteDoc(doc(this.db, "cards", cardId));
