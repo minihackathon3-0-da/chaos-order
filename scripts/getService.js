@@ -1,29 +1,61 @@
-import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js"; 
-import Firebase from "../scripts/firebase.js";
+import { getFirestore, getDocs , collection } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js"; 
+import Firebase from "./firebase.js";
 
 
-class getService extends Firebase {
+class GetService extends Firebase {
     constructor() {
         super();
         this.db = getFirestore(this.app);
-        // später löschen
-        this.testFirebaseConnection();
     }
 
-    // später löschen
-    async testFirebaseConnection() {
+    
+    async getInitAllCards() {
         try {
-            await setDoc(doc(this.db, "card", "1CVs9IzuVJvHqyhOFG6n"), { 
-                timestamp: new Date().toISOString(),
-                status: "connected"
-            });
-            
-            console.log("✅ Erfolgreich mit Firebase verbunden und in Firestore geschrieben!");
-            
+            return await getDocs(collection(this.db, "cards"));
         } catch (error) {
-            console.error("❌ FEHLER BEI DER FIREBASE-VERBINDUNG:", error);
+            console.error("❌ Felher beim laden der Karten:", error);
+        }
+    }
+
+    async getCard(cardId) {
+        try {
+            return await getDocs(collection(this.db, "cards", cardId));
+        } catch (error) {
+            console.error("❌ Felher beim laden der Karten:", error);
+        }
+    }
+
+    async getInitAllCardDetails() {
+        try {
+            return await getDocs(collection(this.db, "cardDetails"));
+        } catch (error) {
+            console.error("❌ Felher beim laden der Kartendetaisl:", error);
+        }
+    }
+
+    async getCardDetail(cardId) {
+        try {
+            return await getDocs(collection(this.db, "cardDetails", cardId));
+        } catch (error) {
+            console.error("❌ Felher beim laden der Kartendetaisl:", error);
+        }
+    }
+
+    async getInitAllCategorys() {
+        try {
+            return await getDocs(collection(this.db, "categorys"));
+        } catch (error) {
+            console.error("❌ Felher beim laden der Kategorien:", error);
+        }
+    }
+
+      async getCategorys(catId) {
+        try {
+            return await getDocs(collection(this.db, "categorys", catId));
+        } catch (error) {
+            console.error("❌ Felher beim laden der Kategorien:", error);
         }
     }
 }
 
-new getService();
+export default GetService;
