@@ -12,12 +12,10 @@
     <link rel="stylesheet" href="./styles/boards.css" />
 
     <script src="./scripts/templates.js"></script>
-
-    <script type="module" src="./scripts/getService.js"></script>
-    <script type="module" src="./scripts/Firebase.js"></script>
+    <script type="module" src="./scripts/script.js"></script>
   </head>
 
-  <body>
+  <body onload="init()">
     <header>
       <a href="#home" class="active">Logo</a>
       <button id="burger_menu">≡</button>
@@ -66,7 +64,6 @@
       <footer></footer>
     </footer>
   </body>
-  <script src="./scripts/script.js"></script>
   <script src="./features/board/userinteraction.js"></script>
 
   <script src="./features/board/boards.js"></script>
