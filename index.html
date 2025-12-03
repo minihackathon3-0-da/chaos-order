@@ -1,3 +1,5 @@
+<!-- # Einstiegspunkt, bindet main.js + styles.css ein -->
+
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -14,8 +16,18 @@
   </head>
 
   <body onload="init()">
-    <header></header>
+    <header>
+      <a href="#home" class="active">Logo</a>
+      <button id="burger_menu">≡</button>
+
+    </header>
     <main>
+      <nav class="right_side_nav">
+        <a href="#home">Homepage</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+        <a href="#about">About</a>
+      </nav>
       <nav class="sidenav">
         <h2>Navigation</h2>
         <label
@@ -49,7 +61,11 @@
       <!-- einfügen des Board-html -->
       <div class="board"></div>
     </main>
-    <footer></footer>
+    <footer>
+      <footer></footer>
+    </footer>
   </body>
-  <script src="./scripts/boards.js"></script>
+  <script src="./features/board/userinteraction.js"></script>
+
+  <script src="./features/board/boards.js"></script>
 </html>
