@@ -1,5 +1,5 @@
 import { getFirestore, getDocs , collection } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js"; 
-import Firebase from "./firebase.js";
+import Firebase from "../firebase.js";
 
 
 // get = Sachen(Objekte) bekommen
