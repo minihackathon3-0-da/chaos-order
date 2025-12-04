@@ -3,13 +3,22 @@
     background-color: #DAC5A1;
 }
 
-#navbar {
-    
+.w-550 {
+    width: 550px;
 }
 
-.test-team{
+.w-800 {
+    width: 800px;
+}
+
+.team {
+    gap: 48px;
+}
+
+.test-team {
     width: 200px;
+    height: 300px;
     border: 2px solid yellow;
+    border-radius: 10px;
     background-color: aqua;
-    gap: 20px
 }
