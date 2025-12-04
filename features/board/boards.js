@@ -1,3 +1,6 @@
+import PostService from "../../scripts/postService.js";
+
+const postService = new PostService();
 const board = document.querySelector(".board");
 const addButton = document.getElementById("add-card-btn");
 const cardTextInput = document.getElementById("card-text-input"); // 👈 neu
@@ -5,17 +8,17 @@ const cardTextInput = document.getElementById("card-text-input"); // 👈 neu
 let cardTemplate = "";
 let cardCounter = 1;
 let test = "Mina";
+let zIndexCounter = 1
 
 // Template laden
-async function loadCardTemplate() {
+export async function loadCardTemplate() {
   const res = await fetch("cards.html");
   cardTemplate = await res.text();
 }
-loadCardTemplate();
 
 // Card aus Template erzeugen
 function createCardFromTemplate() {
-  hello(test);
+  hello(test); // TODO: löschen wenn nicht gebraucht wird
   if (!cardTemplate) return;
 
   const wrapper = document.createElement("div");
@@ -43,11 +46,13 @@ function createCardFromTemplate() {
   const cardRect = card.getBoundingClientRect();
   const maxX = boardRect.width - cardRect.width;
   const maxY = boardRect.height - cardRect.height;
+  const randomColor = getRandomColor();
   const x = Math.random() * maxX;
   const y = Math.random() * maxY;
   card.style.left = x + "px";
   card.style.top = y + "px";
-
+  card.style.backgroundColor = randomColor;
+  buildCardJson(x, y, titleEl, randomColor);
   // 👉 HIER: Card draggable machen
   makeCardDraggable(card);
 }
@@ -90,6 +95,9 @@ function makeCardDraggable(card) {
   card.addEventListener("mousedown", (event) => {
     currentDraggedCard = card;
 
+    zIndexCounter++;
+    card.style.zIndex = zIndexCounter;
+
     const rect = card.getBoundingClientRect();
     dragOffsetX = event.clientX - rect.left;
     dragOffsetY = event.clientY - rect.top;
@@ -97,3 +105,66 @@ function makeCardDraggable(card) {
     document.body.style.userSelect = "none"; // Text-Auswahl verhindern
   });
 }
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+// erstellt ein Obj um es speichern zu können
+function buildCardJson(xPos, yPos, titleEl, randomColor){
+  const id = Date.now();
+  const nameText = titleEl ? titleEl.textContent : "";
+
+  const cardObj = {
+    id: id,
+    name: nameText,
+    color: randomColor,
+    x: xPos,
+    y: yPos,
+  };
+
+  postService.createCard(cardObj);
+}
+
+export function renderCardFromData(cardDataOrArray) {
+  if (!cardTemplate) {
+    console.error("Kein Card-Template geladen");
+    return;
+  }
+
+  const list = Array.isArray(cardDataOrArray) ? cardDataOrArray : [cardDataOrArray];
+
+  list.forEach(cardData => {
+    const wrapper = document.createElement("div");
+    wrapper.innerHTML = cardTemplate.trim();
+    const card = wrapper.firstElementChild;
+
+    const titleEl = card.querySelector("h3");
+    if (titleEl) {
+      titleEl.textContent = cardData.name || `Card #${cardCounter}`;
+    }
+    cardCounter++;
+
+    const pEl = card.querySelector("p");
+    if (pEl) {
+      pEl.textContent = cardData.text || "Standardtext für diese Karte.";
+    }
+
+    card.style.position = "absolute";
+    card.style.left = (cardData.x ?? 0) + "px";
+    card.style.top = (cardData.y ?? 0) + "px";
+
+    if (cardData.color) {
+      card.style.backgroundColor = cardData.color;
+    }
+
+    makeCardDraggable(card);
+    board.appendChild(card);
+  });
+}
+

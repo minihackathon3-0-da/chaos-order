@@ -3,13 +3,13 @@
 import {
   initDragAndDrop,
   makeCardDraggable,
-} from "../features/board/userinteraction.js";
+} from "./features/board/dragdrop.js";
 
 const boardEl = document.getElementById("board");
 
 initDragAndDrop(boardEl); // hier drin werden document.addEventListener(...) gesetzt
 
-function addCard(text) {
+function addCard(text) { // Mina wird das gebraucht? 
   const card = createGoalCardElement({ id, text });
   boardEl.appendChild(card);
   makeCardDraggable(card);

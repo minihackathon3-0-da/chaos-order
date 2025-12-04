@@ -1,5 +1,5 @@
-import { getFirestore, addDoc  } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js"; 
-import Firebase from "./firebase.js";
+import { getFirestore, addDoc , collection } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js"; 
+import Firebase from "../firebase.js";
 
 // post = Sachen(Objekte) neu anlegen
 
@@ -10,7 +10,7 @@ class PostService extends Firebase {
     }
 
     // ---- card -----
-    //               uid
+    //               card
     async createCard(cardData) {
         try {
             await addDoc(collection(this.db, "cards"), cardData);
@@ -20,6 +20,7 @@ class PostService extends Firebase {
     }
 
     // ---- details -----
+    //                     card
     async createCardDetail(detailData) {
         try {
             await addDoc(collection(this.db, "cardDetails"), detailData);
@@ -29,6 +30,7 @@ class PostService extends Firebase {
     }
 
     // ---- category -----
+    //                  categoryObj
     async createCategory(catData) {
         try {
             await addDoc(collection(this.db, "categorys"), catData);
