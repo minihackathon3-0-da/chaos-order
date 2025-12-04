@@ -11,11 +11,10 @@ let test = "Mina";
 let zIndexCounter = 1
 
 // Template laden
-async function loadCardTemplate() {
+export async function loadCardTemplate() {
   const res = await fetch("cards.html");
   cardTemplate = await res.text();
 }
-loadCardTemplate();
 
 // Card aus Template erzeugen
 function createCardFromTemplate() {
@@ -130,5 +129,42 @@ function buildCardJson(xPos, yPos, titleEl, randomColor){
   };
 
   postService.createCard(cardObj);
+}
+
+export function renderCardFromData(cardDataOrArray) {
+  if (!cardTemplate) {
+    console.error("Kein Card-Template geladen");
+    return;
+  }
+
+  const list = Array.isArray(cardDataOrArray) ? cardDataOrArray : [cardDataOrArray];
+
+  list.forEach(cardData => {
+    const wrapper = document.createElement("div");
+    wrapper.innerHTML = cardTemplate.trim();
+    const card = wrapper.firstElementChild;
+
+    const titleEl = card.querySelector("h3");
+    if (titleEl) {
+      titleEl.textContent = cardData.name || `Card #${cardCounter}`;
+    }
+    cardCounter++;
+
+    const pEl = card.querySelector("p");
+    if (pEl) {
+      pEl.textContent = cardData.text || "Standardtext für diese Karte.";
+    }
+
+    card.style.position = "absolute";
+    card.style.left = (cardData.x ?? 0) + "px";
+    card.style.top = (cardData.y ?? 0) + "px";
+
+    if (cardData.color) {
+      card.style.backgroundColor = cardData.color;
+    }
+
+    makeCardDraggable(card);
+    board.appendChild(card);
+  });
 }
 

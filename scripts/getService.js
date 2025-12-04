@@ -15,11 +15,12 @@ class GetService extends Firebase {
         try {
             const snapshot = await getDocs(collection(this.db, "cards"));
             return snapshot.docs.map(d => ({
-                uid: d.uid,
+                uid: d.id,
                 ...d.data()
             }));
         } catch (error) {
             console.error("❌ Felher beim laden der Karten:", error);
+            return [];
         }
     }
 
@@ -29,7 +30,7 @@ class GetService extends Firebase {
         try {
             const snapshot = await getDoc(collection(this.db, "cards", cardId));
             return snapshot.docs.map(d => ({
-                uid: d.uid,
+                uid: d.id,
                 ...d.data()
             }));
         } catch (error) {
@@ -42,11 +43,12 @@ class GetService extends Firebase {
         try {
             const snapshot = await getDocs(collection(this.db, "cardDetails"));
             return snapshot.docs.map(d => ({
-                uid: d.uid,
+                uid: d.id,
                 ...d.data()
             }));
         } catch (error) {
             console.error("❌ Felher beim laden der Kartendetails:", error);
+            return [];
         }
     }
 
@@ -54,7 +56,7 @@ class GetService extends Firebase {
         try {
             const snapshot = await getDoc(collection(this.db, "cardDetails", cardId));
             return snapshot.docs.map(d => ({
-                uid: d.uid,
+                uid: d.id,
                 ...d.data()
             }));
         } catch (error) {
@@ -67,11 +69,12 @@ class GetService extends Firebase {
         try {
             const snapshot = await getDocs(collection(this.db, "categorys"));
             return snapshot.docs.map(d => ({
-                uid: d.uid,
+                uid: d.id,
                 ...d.data()
             }));
         } catch (error) {
             console.error("❌ Felher beim laden der Kategorien:", error);
+            return [];
         }
     }
 
@@ -79,7 +82,7 @@ class GetService extends Firebase {
         try {
             const snapshot = await getDoc(collection(this.db, "categorys", catId));
             return snapshot.docs.map(d => ({
-                uid: d.uid,
+                uid: d.id,
                 ...d.data()
             }));
         } catch (error) {
