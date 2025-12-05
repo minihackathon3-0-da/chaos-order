@@ -4,8 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const offScreenMenuLeft = document.querySelector('.off_screen_menu_left');
   const offScreenMenuRight = document.querySelector('.off_screen_menu_right');
 
-  // offScreenMenuLeftOne && hamburgerMenuOne
-
   if (hamburgerMenuOne && offScreenMenuLeft) {
     hamburgerMenuOne.addEventListener('click', (e) => {
       e.stopPropagation();
@@ -15,20 +13,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.addEventListener('click', (e) => {
-    if (!offScreenMenuLeft.contains(e.target) && !hamburgerMenuOne.contains(e.target)) {
+    if (offScreenMenuLeft && hamburgerMenuOne &&
+        !offScreenMenuLeft.contains(e.target) && !hamburgerMenuOne.contains(e.target)) {
       hamburgerMenuOne.classList.remove('active');
       offScreenMenuLeft.classList.remove('active');
     }
   });
 
-  hamburgerMenuOne.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      hamburgerMenuOne.click();
-    }
-  });
-
-  // offScreenMenuRight && hamburgerMenuTwo
+  if (hamburgerMenuOne) {
+    hamburgerMenuOne.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        hamburgerMenuOne.click();
+      }
+    });
+  }
 
   if (hamburgerMenuTwo && offScreenMenuRight) {
     hamburgerMenuTwo.addEventListener('click', (e) => {
@@ -39,16 +38,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   document.addEventListener('click', (e) => {
-    if (!offScreenMenuRight.contains(e.target) && !hamburgerMenuTwo.contains(e.target)) {
+    if (offScreenMenuRight && hamburgerMenuTwo &&
+        !offScreenMenuRight.contains(e.target) && !hamburgerMenuTwo.contains(e.target)) {
       hamburgerMenuTwo.classList.remove('active');
       offScreenMenuRight.classList.remove('active');
     }
   });
 
+  if (hamburgerMenuTwo) {
     hamburgerMenuTwo.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      hamburgerMenuTwo.click();
-    }
-  });
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        hamburgerMenuTwo.click();
+      }
+    });
+  }
 });

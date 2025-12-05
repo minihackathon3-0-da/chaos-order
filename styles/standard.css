@@ -23,7 +23,7 @@ header {
     height: 100px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     padding: 0 20px;
 }
@@ -47,6 +47,10 @@ header {
     border: none;
     color: black;
     padding: 0 10px;
+}
+
+nav {
+    align-self: center;
 }
 
 main {
