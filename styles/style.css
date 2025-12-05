@@ -1,0 +1,48 @@
+* {
+    color: whitesmoke;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #4D4BB2;
+}
+
+main {
+    background-color: #135CED;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+footer {
+    background-color: #4D4BB2;
+}
+
+.w-550 {
+    width: 550px;
+}
+
+.w-800 {
+    width: 800px;
+}
+
+.team {
+    gap: 48px;
+}
+
+.test-team {
+    width: 200px;
+    height: 300px;
+    border: 2px solid yellow;
+    border-radius: 10px;
+    background-color: aqua;
+}
