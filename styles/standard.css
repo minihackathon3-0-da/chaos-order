@@ -1,14 +1,14 @@
 * {
-  box-sizing: border-box;
-  border: none;
-  margin: 0;
-  padding: 0;
-  scroll-behavior: smooth;
+    box-sizing: border-box;
+    border: none;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: rgb(19, 92, 237);
+    background-color: rgb(16, 18, 23);
     color: white;
     text-shadow: rgb(212, 175, 55);
 }
@@ -16,28 +16,16 @@ body {
 header,
 footer {
     width: 100%;
-    background-color: rgb(77, 75, 178);
+    background-color: rgb(16, 22, 36);
 }
 
 header {
-    height: 60px;
+    height: 100px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-}
-
-header button {
-    background-color: transparent;
-    color: white;
-    background-color: rgb(19, 92, 237);
-    font-size: 16px;
-    font-weight: 500;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .header a {
@@ -63,152 +51,287 @@ header button {
 
 main {
     top: 0;
+    padding-bottom: 2em;
     height: 100vh;
     display: flex;
-    justify-content: end;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.right_side_nav {
-    /* left: 30px; */
-    right: 30px;
-    height: 100vh;
-    width: 150px;
-    background-color: rgb(154, 91, 111);
+/* -------------------------------------------------------------------------------------- */
+
+/* Hamburger container */
+.hamburger_menu {
+    cursor: pointer;
+    width: 48px;
+    height: 36px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    padding-top: 80px;
+    background-color: #111;
+    box-shadow: -6px 0 20px rgba(0, 0, 0, 0.35);
 }
 
-/* .right_side_nav:not [active] {
-    width: - 150px
-} */
-
-.right_side_nav a {
-    color: black;
-    padding: 14px 16px;
-    text-align: center;
-    text-decoration: none;
-    font-size: 17px;
+/* Bars */
+.hamburger_menu span {
     display: block;
+    position: absolute;
+    height: 4px;
+    width: 70%;
+    background-color: white;
+    border-radius: 4px;
+    left: 15%;
+    transition: all 0.3s ease-in-out;
 }
 
-.right_side_nav a:hover {
-    color: white;
+.hamburger_menu span:nth-child(1) {
+    top: 8px;
 }
+
+.hamburger_menu span:nth-child(2) {
+    top: 16px;
+}
+
+.hamburger_menu span:nth-child(3) {
+    top: 24px;
+}
+
+.hamburger_menu.active span:nth-child(1) {
+    top: 16px;
+    transform: rotate(45deg);
+}
+
+.hamburger_menu.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.hamburger_menu.active span:nth-child(3) {
+    top: 16px;
+    transform: rotate(-45deg);
+}
+
+.off_screen_menu_left {
+    color: white;
+    background-color: rgb(28, 32, 46);
+    height: 100vh;
+    width: 320px;
+    position: fixed;
+    top: 0;
+    left: -320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    text-align: left;
+    font-size: 1.1rem;
+    transition: right 0.3s ease;
+    z-index: 9999;
+    padding-top: 80px;
+    box-shadow: -6px 0 20px rgba(0, 0, 0, 0.35);
+}
+
+.off_screen_menu_right {
+    color: white;
+    background-color: rgb(28, 32, 46);
+    height: 100vh;
+    width: 320px;
+    position: fixed;
+    top: 0;
+    right: -320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    text-align: left;
+    font-size: 1.1rem;
+    transition: right 0.3s ease;
+    z-index: 9999;
+    padding-top: 80px;
+    box-shadow: -6px 0 20px rgba(0, 0, 0, 0.35);
+}
+
+.off_screen_menu_left.active {
+    left: 0;
+}
+
+.off_screen_menu_right.active {
+    right: 0;
+}
+
+/* Menü-Listenelemente */
+.off_screen_menu_left, .off_screen_menu_right ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.off_screen_menu_left, .off_screen_menu_right ul li {
+    padding: 14px 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    color: white;
+    text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------------------- */
 
 footer {
     position: absolute;
-    bottom: 0;
     height: 2em;
 }
 
+.all_buttons {
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 8px 10px;
+    border-radius: 6px;
+    border: none;
+    background: #2563eb;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: #6a8ae1;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+.sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #444;
+}
+
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 a:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .d_block {
-  display: block;
+    display: block;
 }
 
 .d_none {
-  display: none;
+    display: none;
 }
 
 .d_flex {
-  display: flex;
+    display: flex;
 }
 
 .d_flex_column {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .d_flex_sb_c {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .d_flex_sa_c {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .d_flex_se_c {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .d_flex_c_c {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  background-color: rgb(19, 92, 237);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(19, 92, 237);
 }
-
-
 
 /*Boards*/
-.sidenav button {
-  display: block;
-  width: 100%;
-  margin-bottom: 16px;
-  padding: 8px 10px;
-  border-radius: 6px;
-  border: none;
-  background: #2563eb;
-  color: #a6b2c9;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.sidenav button:hover {
-  background: #1d4ed8;
-}
 
 .board {
-  position: relative;
-  width: 800px;
-  height: 400px;
-  margin: 40px auto;
-  background: #527bce;
-  border-radius: 12px;
-  border: 1px solid #d1d5db;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    position: relative;
+    min-width: 800px;
+    height: auto;
+    min-height: 500px;
+    margin: 40px auto;
+    background: #527bce;
+    border-radius: 12px;
+    border: 1px solid #d1d5db;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 .card {
-  position: absolute;
-  background: #115377;
-  border-radius: 10px;
-  padding: 16px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  border: 1px solid #e5e7eb;
-  max-width: 260px;
-  cursor: default;
-  user-select: none;
+    position: absolute;
+    background: #115377;
+    border-radius: 10px;
+    padding: 16px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
+    max-width: 260px;
+    cursor: default;
+    user-select: none;
 }
 
 .card h3 {
-  margin: 0 0 8px;
-  font-size: 16px;
-  color: black;
+    margin: 0 0 8px;
+    font-size: 16px;
+    color: black;
 }
 
 .card p {
-  margin: 0;
-  font-size: 14px;
-  color: #4b5563;
+    margin: 0;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+::marker {
+    unicode-bidi: isolate;
+    font-variant-numeric: tabular-nums;
+    text-transform: none;
+    text-indent: 0px !important;
+    text-align: start !important;
+    text-align-last: auto !important;
 }
