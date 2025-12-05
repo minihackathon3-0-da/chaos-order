@@ -178,6 +178,7 @@ export function renderCardFromData(cardDataOrArray) {
 }
 
 function updateCardPosition(card){
+  // erstelle das Obj zum updaten
   const cardObj = {
     id: card.dataset.id,
     name: card.dataset.name,
@@ -186,5 +187,6 @@ function updateCardPosition(card){
     y: parseFloat(card.style.top),
   };
 
+  // wichtig beim update: uid übergeben, damit man weiß, welche karte man meint
   putService.updateCard(card.dataset.uid, cardObj);
 }
