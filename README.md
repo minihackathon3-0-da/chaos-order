@@ -1,3 +1,3 @@
 # chaos-order
 
-MItglieder: Mina Zarkesh
+MItglieder: Mina Zarkesh, Erik Beshiri,
