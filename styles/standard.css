@@ -10,6 +10,8 @@ body {
     font-family: 'Roboto', sans-serif;
     background-color: rgb(11, 38, 22);
     color: white;
+    margin: 0;
+    padding: 0;
     text-shadow: rgb(212, 175, 55);
 }
 
@@ -27,19 +29,7 @@ header {
     align-items: center;
     padding: 0 20px;
 }
-
-header button {
-    background-color: transparent;
-    color: white;
-    background-color: rgb(212, 175, 55);
-    font-size: 16px;
-    font-weight: 500;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
+  
 .header a {
     color: black;
     padding: 14px 16px;
@@ -110,6 +100,9 @@ footer {
 
 a {
   text-decoration: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 a:hover {
@@ -197,7 +190,6 @@ a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    ;
 }
 
 .d_flex_end_aic {
@@ -266,8 +258,6 @@ a:hover {
   width: 100%;
   background-color: rgba(0, 0, 0, 0.432);
 }
-
-
 
 /*Boards*/
 .sidenav button {
