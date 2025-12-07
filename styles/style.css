@@ -1,10 +1,10 @@
 * {
-    color: whitesmoke;
+  color: var(--color-accent-blue);
 }
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 body {
@@ -25,10 +25,10 @@ header {
 }
 
 main {
-    background-color: #135CED;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
+  background-color: var(--color-bg);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 footer {
@@ -38,23 +38,23 @@ footer {
 }
 
 .w-550 {
-    width: 550px;
+  width: 550px;
 }
 
 .w-800 {
-    width: 800px;
+  width: 800px;
 }
 
 .team {
-    gap: 48px;
+  gap: 48px;
 }
 
 .test-team {
-    width: 200px;
-    height: 300px;
-    border: 2px solid yellow;
-    border-radius: 10px;
-    background-color: aqua;
+  width: 200px;
+  height: 300px;
+  border: 2px solid yellow;
+  border-radius: 10px;
+  background-color: aqua;
 }
 
 .supporters {

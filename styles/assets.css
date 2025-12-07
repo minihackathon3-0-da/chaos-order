@@ -1,15 +1,48 @@
 /* img, icons */
+
+.root {
+  --color-white: white;
+  --color-black: black;
+  --color-bg: #07090e;
+  --color-primary: #101622;
+  --color-secondary: #1c212d;
+  --color-text: #52565f;
+  --color-border: #1c212d;
+  --color-accent-blue: #135bec;
+}
+
+/* body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+} */
+
 .img-logo {
-    height: 64px;
-    padding: 8px;
+  height: 64px;
+  padding: 8px;
 }
 
 .git-logo {
-    width: 48px;
-    height: 48px;
-
+  width: 48px;
+  height: 48px;
 }
-.linkedin-logo{
-    width: 39px;
-    height: 39px;
+.linkedin-logo {
+  width: 39px;
+  height: 39px;
+}
+
+* {
+  box-sizing: border-box;
+  border: none;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-white);
+  margin: 0;
+  padding: 0;
+  text-shadow: var(--color-secondary);
 }
