@@ -10,7 +10,7 @@
   --color-accent-blue: #135bec;
   --color-board: #527bce;
 
-  --nav-width: 200px;
+  --nav-width: 0;
   --main-width: calc(100vw - var(--nav-width));
   --header-height: 80px;
   --footer-height: 80px;
@@ -32,6 +32,27 @@ body {
   flex-direction: column;
   font-family: "Roboto", sans-serif;
   text-shadow: var(--color-secondary);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+}
+
+footer{
+    padding: 20px
 }
 
 header {
@@ -236,4 +257,16 @@ a:hover {
   cursor: pointer;
   scale: calc(1.2);
   transition: 0.3s;
+}
+
+.d_flex_column{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.d_flex_column a{
+  padding: 0;
 }

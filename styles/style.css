@@ -23,33 +23,6 @@
   padding: 24px;
 }
 
-/* sideNav */
-.right_side_nav {
-  position: absolute;
-  right: 0px;
-  display: flex;
-  flex-direction: column;
-  height: var(--main-height);
-  width: var(--nav-width);
-  background-color: var(--color-secondary);
-}
-
-.right_side_nav:not [active] {
-  width: -150px;
-}
-
-.right_side_nav a {
-  color: var(--color-text);
-  padding: 14px 16px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 17px;
-}
-
-.right_side_nav a:hover {
-  color: white;
-}
-
 /*Boards*/
 
 .input-div {

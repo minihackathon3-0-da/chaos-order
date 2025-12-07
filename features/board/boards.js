@@ -42,16 +42,9 @@ function createCardFromTemplate() {
     pEl.textContent = value || "Standardtext für diese Karte.";
   }
 
-  
-  // delete
-  card.querySelector(".trashIcon").addEventListener("click", (event) => {
-    event.stopPropagation();
-    deleteService.deleteCard(card);
-    card.remove();
-  });
-
-
-  board.appendChild(card);
+  if(board) {
+    board.appendChild(card); 
+  }
   cardTextInput.value = "";
   // random Position
   const boardRect = board.getBoundingClientRect();
@@ -64,12 +57,15 @@ function createCardFromTemplate() {
   card.style.left = x + "px";
   card.style.top = y + "px";
   card.style.backgroundColor = randomColor;
-  buildCardJson(x, y, titleEl, randomColor);
+  buildCardJson(x, y, titleEl, pEl.textContent, randomColor);
   // 👉 HIER: Card draggable machen
   makeCardDraggable(card);
 }
 
-addButton.addEventListener("click", createCardFromTemplate);
+if(addButton){
+  addButton.addEventListener("click", createCardFromTemplate);
+
+}
 
 // globales mousemove: wenn gerade eine Card gezogen wird, bewegen
 document.addEventListener("mousemove", (event) => {
@@ -130,13 +126,14 @@ function getRandomColor() {
 }
 
 // erstellt ein Obj um es speichern zu können
-function buildCardJson(xPos, yPos, titleEl, randomColor){
+function buildCardJson(xPos, yPos, titleEl, textP, randomColor){
   const id = Date.now();
   const nameText = titleEl ? titleEl.textContent : "";
 
   const cardObj = {
     id: id,
     name: nameText,
+    text: textP,
     color: randomColor,
     x: xPos,
     y: yPos,
@@ -162,6 +159,7 @@ export function renderCardFromData(cardDataOrArray) {
     card.dataset.name = cardData.name;
     card.dataset.color = cardData.color;
     card.dataset.uid = cardData.uid;
+    card.dataset.text = cardData.text;
 
     const titleEl = card.querySelector("h3");
     if (titleEl) {
@@ -191,7 +189,9 @@ export function renderCardFromData(cardDataOrArray) {
 
 
     makeCardDraggable(card);
-    board.appendChild(card);
+    if (board) {
+        board.appendChild(card); 
+    }
   });
 }
 

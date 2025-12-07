@@ -4,25 +4,27 @@ import { loadCardTemplate, renderCardFromData } from "../features/board/boards.j
 const getService = new GetService();
 
 async function init() {
-   
-    await loadCardTemplate();
+    const addButton = document.getElementById("add-card-btn");
+    if(addButton){
+        await loadCardTemplate();
 
-    const cards = await getService.getInitAllCards();
-    const cardsDetails = await getService.getInitAllCardDetails();
-    const categorys = await getService.getInitAllCategorys();
+        const cards = await getService.getInitAllCards();
+        const cardsDetails = await getService.getInitAllCardDetails();
+        const categorys = await getService.getInitAllCategorys();
 
-    if (Array.isArray(cards)) {
-        cards.forEach(card => {
-            renderCardFromData(card);
-        });
-    } else {
-        console.warn("cards ist kein Array!", cards);
+        if (Array.isArray(cards)) {
+            cards.forEach(card => {
+                renderCardFromData(card);
+            });
+        } else {
+            console.warn("cards ist kein Array!", cards);
+        }
     }
-    render();
 }
  
 document.addEventListener("DOMContentLoaded", () => {
     init().catch(err => console.error("Fehler in init():", err));
+    render();
 });
 
 
@@ -50,6 +52,5 @@ function renderFooter() {
     } else {
         console.error('Footer-Element nicht gefunden!');
     }
-    console.log(footerRef);
 }
 
