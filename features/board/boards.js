@@ -1,6 +1,8 @@
 import PostService from "../../scripts/postService.js";
+import PutService from "../../scripts/putService.js";
 
 const postService = new PostService();
+const putService = new PutService();
 const board = document.querySelector(".board");
 const addButton = document.getElementById("add-card-btn");
 const cardTextInput = document.getElementById("card-text-input"); // 👈 neu
@@ -82,6 +84,8 @@ document.addEventListener("mousemove", (event) => {
 // mouseup: Drag beenden
 document.addEventListener("mouseup", () => {
   if (!currentDraggedCard) return;
+
+  updateCardPosition(currentDraggedCard)
   currentDraggedCard = null;
   document.body.style.userSelect = "";
 });
@@ -131,6 +135,7 @@ function buildCardJson(xPos, yPos, titleEl, randomColor){
   postService.createCard(cardObj);
 }
 
+// render die karten beim onlaod
 export function renderCardFromData(cardDataOrArray) {
   if (!cardTemplate) {
     console.error("Kein Card-Template geladen");
@@ -143,6 +148,10 @@ export function renderCardFromData(cardDataOrArray) {
     const wrapper = document.createElement("div");
     wrapper.innerHTML = cardTemplate.trim();
     const card = wrapper.firstElementChild;
+    card.dataset.id = cardData.id;
+    card.dataset.name = cardData.name;
+    card.dataset.color = cardData.color;
+    card.dataset.uid = cardData.uid;
 
     const titleEl = card.querySelector("h3");
     if (titleEl) {
@@ -168,3 +177,16 @@ export function renderCardFromData(cardDataOrArray) {
   });
 }
 
+function updateCardPosition(card){
+  // erstelle das Obj zum updaten
+  const cardObj = {
+    id: card.dataset.id,
+    name: card.dataset.name,
+    color: card.dataset.color,
+    x: parseFloat(card.style.left),
+    y: parseFloat(card.style.top),
+  };
+
+  // wichtig beim update: uid übergeben, damit man weiß, welche karte man meint
+  putService.updateCard(card.dataset.uid, cardObj);
+}

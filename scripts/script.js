@@ -10,10 +10,7 @@ async function init(){
     const cardsDetails = await getService.getInitAllCardDetails();
     const categorys = await getService.getInitAllCategorys();
 
-    console.log("cards aus Firestore:", cards);   // 👈 neu
-
     if (Array.isArray(cards)) {
-        console.log("wwwwww, cards.length:", cards.length);
         cards.forEach(card => {
             console.log("render eine Card:", card);
             renderCardFromData(card);
