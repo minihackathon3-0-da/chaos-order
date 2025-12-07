@@ -3,7 +3,8 @@ import { loadCardTemplate, renderCardFromData } from "../features/board/boards.j
 
 const getService = new GetService();
 
-async function init(){
+async function init() {
+    render();
     await loadCardTemplate();
 
     const cards = await getService.getInitAllCards();
@@ -21,5 +22,30 @@ async function init(){
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  init().catch(err => console.error("Fehler in init():", err));
+    init().catch(err => console.error("Fehler in init():", err));
 });
+
+
+function render() {
+    renderHeader();
+    renderFooter(); 
+}
+
+function renderHeader() {
+    const headerRef = document.getElementById('header');
+    if (headerRef) {
+        headerRef.innerHTML = getHeaderTemplate();
+    } else {
+        console.error('Header-Element nicht gefunden!');
+    }
+}
+
+
+function renderFooter() {
+    const footerRef = document.getElementById('footer');
+    if (footerRef) {
+        footerRef.innerHTML = getFooterTemplate();
+    } else {
+        console.error('Footer-Element nicht gefunden!');
+    }
+}
