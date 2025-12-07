@@ -92,17 +92,36 @@
 .card h3 {
   margin: 0 0 8px;
   font-size: 16px;
-  /* color: black; */
+  color: black;
 }
 
 .card p {
   margin: 0;
   font-size: 14px;
-  /* color: #4b5563; */
+  color: black;
 }
 
 .label-card-input {
   font-size: 12px;
   display: block;
   margin-bottom: 4px;
+}
+
+.cardHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trashIcon{
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.trashIcon:hover{
+  cursor: pointer;
+  scale: calc(1.2);
+  transition: 0.3s;
 }
