@@ -27,8 +27,12 @@
   position: absolute;
   right: 0px;
   height: 100vh;
-  width: 150px;
+  width: 176px;
   background-color: var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 /* .right_side_nav:not [active] {
@@ -37,10 +41,10 @@
 
 .right_side_nav a {
   /* color: black; */
-  padding: 14px 16px;
   text-align: center;
   text-decoration: none;
   font-size: 17px;
+  margin: 0 4px;
 }
 
 /* .right_side_nav a:hover {
