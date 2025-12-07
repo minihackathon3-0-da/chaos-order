@@ -73,6 +73,7 @@
   margin: 40px auto;
   /* background: #527bce; */
   border-radius: 12px;
+  box-shadow: rgb(50 50 93 / 7%) 0px 30px 60px -12px inset, #135bec29 0px 18px 36px -18px inset;
   /* border: 1px solid #d1d5db; */
   /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); */
 }
@@ -92,17 +93,36 @@
 .card h3 {
   margin: 0 0 8px;
   font-size: 16px;
-  /* color: black; */
+  color: black;
 }
 
 .card p {
   margin: 0;
   font-size: 14px;
-  /* color: #4b5563; */
+  color: black;
 }
 
 .label-card-input {
   font-size: 12px;
   display: block;
   margin-bottom: 4px;
+}
+
+.cardHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trashIcon{
+  width: 20px;
+  height: 20px;
+  object-fit: cover;
+  margin-bottom: 8px;
+}
+
+.trashIcon:hover{
+  cursor: pointer;
+  scale: calc(1.2);
+  transition: 0.3s;
 }

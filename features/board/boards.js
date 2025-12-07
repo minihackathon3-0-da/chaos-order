@@ -1,8 +1,10 @@
 import PostService from "../../scripts/postService.js";
 import PutService from "../../scripts/putService.js";
+import DeleteService from "../../scripts/deleteService.js";
 
 const postService = new PostService();
 const putService = new PutService();
+const deleteService = new DeleteService();
 const board = document.querySelector(".board");
 const addButton = document.getElementById("add-card-btn");
 const cardTextInput = document.getElementById("card-text-input"); // 👈 neu
@@ -20,7 +22,6 @@ export async function loadCardTemplate() {
 
 // Card aus Template erzeugen
 function createCardFromTemplate() {
-  hello(test); // TODO: löschen wenn nicht gebraucht wird
   if (!cardTemplate) return;
 
   const wrapper = document.createElement("div");
@@ -40,6 +41,15 @@ function createCardFromTemplate() {
     const value = cardTextInput.value.trim();
     pEl.textContent = value || "Standardtext für diese Karte.";
   }
+
+  
+  // delete
+  card.querySelector(".trashIcon").addEventListener("click", (event) => {
+    event.stopPropagation();
+    deleteService.deleteCard(card);
+    card.remove();
+  });
+
 
   board.appendChild(card);
   cardTextInput.value = "";
@@ -111,10 +121,10 @@ function makeCardDraggable(card) {
 }
 
 function getRandomColor() {
-  var letters = '0123456789ABCDEF';
-  var color = '#';
-  for (var i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
+  const letters = '89ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * letters.length)];
   }
   return color;
 }
@@ -171,6 +181,14 @@ export function renderCardFromData(cardDataOrArray) {
     if (cardData.color) {
       card.style.backgroundColor = cardData.color;
     }
+
+    // delete
+    card.querySelector(".trashIcon").addEventListener("click", (event) => {
+      event.stopPropagation();
+      deleteService.deleteCard(card.dataset.uid);
+      card.remove();
+    });
+
 
     makeCardDraggable(card);
     board.appendChild(card);
