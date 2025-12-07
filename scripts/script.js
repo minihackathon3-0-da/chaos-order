@@ -4,7 +4,7 @@ import { loadCardTemplate, renderCardFromData } from "../features/board/boards.j
 const getService = new GetService();
 
 async function init() {
-    render();
+   
     await loadCardTemplate();
 
     const cards = await getService.getInitAllCards();
@@ -19,6 +19,7 @@ async function init() {
     } else {
         console.warn("cards ist kein Array!", cards);
     }
+    //  render();
 }
 
 document.addEventListener("DOMContentLoaded", () => {
