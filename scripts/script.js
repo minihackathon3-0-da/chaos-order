@@ -19,9 +19,9 @@ async function init() {
     } else {
         console.warn("cards ist kein Array!", cards);
     }
-    //  render();
+    render();
 }
-
+ 
 document.addEventListener("DOMContentLoaded", () => {
     init().catch(err => console.error("Fehler in init():", err));
 });
@@ -31,6 +31,8 @@ function render() {
     renderHeader();
     renderFooter(); 
 }
+
+import { getHeaderTemplate, getFooterTemplate } from './templates.js';
 
 function renderHeader() {
     const headerRef = document.getElementById('header');
@@ -49,4 +51,6 @@ function renderFooter() {
     } else {
         console.error('Footer-Element nicht gefunden!');
     }
+    console.log(footerRef);
 }
+
