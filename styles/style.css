@@ -1,0 +1,103 @@
+.w-550 {
+  width: 550px;
+}
+
+.w-800 {
+  width: 800px;
+}
+
+.team {
+  gap: 48px;
+}
+
+.test-team {
+  width: 240px;
+  height: 300px;
+  border: 2px solid var(--color-accent-blue);
+  border-radius: 10px;
+  padding: 8px;
+  /* background-color: aqua; */
+}
+
+.supporters {
+  padding: 24px;
+}
+
+/*Boards*/
+
+.input-div {
+  color: var(--color-white);
+}
+
+.input-div button {
+  display: block;
+  height: 100%;
+  width: fit-content;
+  padding: 16px;
+  border-radius: 6px;
+  border: none;
+  background: var(--color-accent-blue);
+  color: var(--color-white);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.input-div button:hover {
+  background: var(--color-secondary);
+}
+.useraction {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Boards und Cards */
+.board {
+  position: relative;
+  min-width: 800px;
+  min-height: 400px;
+  width: 95%;
+  height: 100%;
+  margin: 24px auto;
+  background: var(--color-board);
+  border-radius: 12px;
+  /* border: 1px solid #d1d5db; */
+  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); */
+}
+
+.card {
+  position: absolute;
+  color: var(--color-text);
+  /* background: #ffffff; */
+  border-radius: 10px;
+  padding: 16px 20px;
+  /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); */
+  /* border: 1px solid #e5e7eb; */
+  max-width: 260px;
+  cursor: default;
+  user-select: none;
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  /* color: black; */
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  /* color: #4b5563; */
+}
+
+.label-card-input {
+  font-size: 12px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.cardHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,28 +1,59 @@
 <!DOCTYPE html>
 <html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chaos-Order</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/1764709167_ec700f188158429b9809da4d628544a2.png"
+      type="image/x-icon"
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chaos-order</title>
-    <link rel="stylesheet" href="./styles/assets.css">
-    <link rel="stylesheet" href="./styles/fonts.css">
-    <link rel="stylesheet" href="./styles/standard.css">
+    <link rel="stylesheet" href="./styles/standard.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/assets.css" />
 
-    <script src="./scripts/templates.js"></script>
-</head>
+    <script type="module" src="./scripts/templates.js" defer></script>
+    <script type="module" src="./scripts/script.js" defer></script>
+    <script type="module" src="./main.js" defer></script>
+    <script type="module" src="./features/board/dragdrop.js" defer></script>
+    <script type="module" src="./features/board/boards.js" defer></script>
+    <!-- <script src="./features/board/userinteraction.js" defer></script> -->
+    <!-- bitte prüfen obs gebraucht wird-->
+  </head>
 
 <body>
-    <header>
-
+  <header id="header" class="header-index d_flex_sb_aic">
+    <!-- <img class="img-logo" src="./assets/icons/1764709167_ec700f188158429b9809da4d628544a2.png" alt="">
+      <a href="#home" class="active">Logo</a>
+      <button id="burger_menu">≡</button> -->
     </header>
+
     <main>
+      <div class="main">
+        <div class="input-div">
+          <p style="text-align: center;">
+            Erstelle eine Karte mit Zielen die du setzen willst. Du kannst die Karte auf dem Board verschieden und somit Gruppen bilden.
+          </p>
+          <div class="useraction">
+            <input
+              id="card-text-input"
+              type="text"
+              placeholder="Text für die Karte"
+            />
 
+            <button id="add-card-btn">+ Neue Card</button>
+          </div>
+        </div>
+        <!-- einfügen des Board-html -->
+        <div class="board" id="board"></div>
+      </div>
     </main>
-    <footer> 
-
+    <footer id="footer" class="d_flex_column_c_c">
+      <!-- <span>&copy; 2025 Chaos-Order</span>
+    <span>developed by</span>
+    <span>Chaos-Order Team</span> -->
     </footer>
-</body>
-<script src="./scripts/script.js"></script>
-
+  </body>
 </html>
