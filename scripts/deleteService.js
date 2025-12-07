@@ -1,4 +1,4 @@
-import { getFirestore, deleteDoc } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js"; 
+import { getFirestore, deleteDoc, doc} from "https://www.gstatic.com/firebasejs/12.6.0/firebase-firestore.js"; 
 import Firebase from "../firebase.js";
 
 // delete = Sachen(Objekte) löschen

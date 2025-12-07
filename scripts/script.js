@@ -13,7 +13,6 @@ async function init() {
 
     if (Array.isArray(cards)) {
         cards.forEach(card => {
-            console.log("render eine Card:", card);
             renderCardFromData(card);
         });
     } else {

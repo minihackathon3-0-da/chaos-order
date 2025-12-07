@@ -6,7 +6,6 @@ let boardEl = null;
 
 export function initDragAndDrop(boardElement) {
   boardEl = boardElement;
-  console.log("Funktion init");
 
   document.addEventListener("mousemove", handleMouseMove);
   document.addEventListener("mouseup", handleMouseUp);
