@@ -73,6 +73,7 @@
   margin: 40px auto;
   /* background: #527bce; */
   border-radius: 12px;
+  box-shadow: rgb(50 50 93 / 7%) 0px 30px 60px -12px inset, #135bec29 0px 18px 36px -18px inset;
   /* border: 1px solid #d1d5db; */
   /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); */
 }
