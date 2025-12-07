@@ -1,5 +1,3 @@
-<!-- # Einstiegspunkt, bindet main.js + styles.css ein -->
-
 <!DOCTYPE html>
 <html lang="de">
   <head>
@@ -21,6 +19,7 @@
     <script type="module" src="./main.js" defer></script>
     <script type="module" src="./features/board/dragdrop.js" defer></script>
     <script type="module" src="./features/board/boards.js" defer></script>
+    <!-- <script src="./features/board/userinteraction.js" defer></script> -->
     <!-- bitte prüfen obs gebraucht wird-->
   </head>
 
@@ -30,38 +29,34 @@
       <a href="#home" class="active">Logo</a>
       <button id="burger_menu">≡</button> -->
     </header>
+
     <main>
       <nav class="right_side_nav">
-        <a href="#home">Homepage</a>
-        <a href="#news">News</a>
-        <a href="#contact">Contact</a>
-        <!--         <a href="#about">About</a> -->
         <a href="team.html">Team</a>
         <a href="privacyPolicy.html">Datenschutzerklärung</a>
         <a href="impressum.html">Impressum</a>
       </nav>
-      <nav class="sidenav">
-        <h2>Navigation</h2>
-        <label class="label-card-input" for="card-text-input">
-          Text für neue Card:
-        </label>
-        <input
-          id="card-text-input"
-          type="text"
-          placeholder="Text für die Karte"
-        />
+      <div class="main">
+        <div class="input-div">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta,
+            tenetur, placeat iste reprehenderit quibusdam, perspiciatis deserunt
+            excepturi eligendi sit dolorem illo totam. Ullam similique cum
+            magnam debitis veniam, error assumenda.
+          </p>
+          <div class="useraction">
+            <input
+              id="card-text-input"
+              type="text"
+              placeholder="Text für die Karte"
+            />
 
-        <button id="add-card-btn">+ Neue Card</button>
-
-        <ul>
-          <li><a href="#">Board</a></li>
-          <li><a href="#">Einstellungen</a></li>
-          <li><a href="#">Über</a></li>
-        </ul>
-      </nav>
-
-      <!-- einfügen des Board-html -->
-      <div class="board" id="board"></div>
+            <button id="add-card-btn">+ Neue Card</button>
+          </div>
+        </div>
+        <!-- einfügen des Board-html -->
+        <div class="board" id="board"></div>
+      </div>
     </main>
     <footer class="d_flex_column_c_c">
       <!-- <span>&copy; 2025 Chaos-Order</span>
@@ -69,5 +64,4 @@
     <span>Chaos-Order Team</span> -->
     </footer>
   </body>
-  <!-- <script src="./scripts/script.js"></script> -->
 </html>
